@@ -1,0 +1,23 @@
+.fa-play{
+ color:  rgb(60, 204, 60);
+}
+
+
+.fa-power-off{
+   color: rgb(128, 0, 0);
+}
+
+body{
+    overflow-x: hidden;
+   
+}
+
+li{
+    box-shadow: 2px gray;
+}
+.on-class{
+    background-color: rgba(146, 224, 146, 0.15);
+}
+.off-class{
+    background-color: rgba(241, 93, 93, 0.15);
+}

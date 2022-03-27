@@ -1,0 +1,99 @@
+<body>
+
+    <div class="d-flex justify-content-center my-4">
+
+        <div class="col-md-6 text-center">
+            <h3>List of Houses </h3>
+        </div>
+        <button (click)="openAdd(modalContent)"  class="btn btn-primary btn-sm mr-1"><i class="fa fa-plus"></i></button> 
+    
+    </div>
+    
+       
+    <!-- Model ADD & Update house : -------------------------------------------------------------------------->
+    <ng-template #modalContent let-modal>
+    
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="modal-basic-title">Add House</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-md-6 mx-auto">
+    
+                <form method="post">
+                    <div class="form-group">
+                        <label for="Nom">Nom</label>
+                        <input [(ngModel)]="myHome.name" name="Nom" type="text" class="form-control" id="Nom"
+                            placeholder="Enter Nom" required>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="Adress">Adress</label>
+                        <input [(ngModel)]="myHome.adress" name="Adress" type="text" class="form-control" id="Adress"
+                            placeholder="Enter Adress" required>
+                    </div>
+    
+    
+              
+    
+                    <button [hidden]="this.modalMode!='add'"  (click)="add()" class="btn btn-primary"
+                        (click)="modal.dismiss('Cross click')"><i class="fas fa-plus"></i>
+                        Add House </button>
+     
+                    <button  [hidden]="this.modalMode!='update'" (click)="update()" class="btn btn-primary"
+                        (click)="modal.dismiss('Cross click')"><i class="fas fa-edit"></i>
+                        Update House </button>
+    
+                </form>
+    
+    
+    
+                {{ myHome | json}}
+    
+    
+    
+            </div>
+        </div>
+    
+    
+    </ng-template>
+    <!-- END of Model ADD & Update house :------------------------------------------------------------ -->
+   
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <ul class="list-group">
+    
+    
+    
+                <ul class="list-group">
+    
+                    <li *ngFor="let h of listofHouses"
+                        class="list-group-item d-flex justify-content-between align-items-center">
+                        <p>
+                        id:{{h.id}}<br>
+                        name :{{h.name}}<br>
+                        adress: {{h.adress}}<br>
+                        userId: {{h.userId}} <br>
+                        Floors :
+                            <span *ngFor="let f of h.floors">
+                                <li>Floor N° : {{f.number}}</li>
+                            </span><br>
+                        </p>    
+    
+                        <button (click)="openUpdate(modalContent,h.id)"  type="button" class="btn btn-warning btn-md"><i class="fa fa-pencil"></i></button>
+    
+                        <button (click)="delete(h.id)"  type="button"  class="btn btn-danger btn-md"><i class="fa fa-trash"></i></button>
+    
+                    </li>
+    
+                </ul>
+    
+            </ul>
+        </div>
+    </div>
+
+
+</body>

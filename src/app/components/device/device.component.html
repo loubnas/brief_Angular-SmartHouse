@@ -1,0 +1,128 @@
+<body>
+
+    <div class="d-flex justify-content-center my-4">
+
+        <div class="col-md-6 text-center">
+            <h3>List of devices</h3>
+        </div>
+        <button (click)="openAdd(modalContent)" class="btn btn-primary btn-sm mr-1"><i class="fa fa-plus"></i></button> 
+    
+    </div>
+    
+    <!-- Model ADD & Update device : -------------------------------------------------------------------------->
+    <ng-template #modalContent let-modal>
+    
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="modal-basic-title">Add Device</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-md-6 mx-auto">
+    
+                <form method="post">
+                    
+                    <div class="form-group">
+                        <label for="status">floor</label>
+                        <select [required]=true [(ngModel)]="this.myFloor" (ngModelChange)="floorChange($event)" name="floor" class="form-select">
+    
+                            <option *ngFor="let f of listofFloors" [ngValue]="f" value="{{f.id}}" >Floor N° : {{f.number}}</option>
+    
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">room</label>
+                        <select  [required]=true [(ngModel)]="this.myDevice.roomId" name="room" class="form-select">
+    
+                            <option *ngFor="let r of this.myFloor?.rooms" [ngValue]="r.id" >{{r.name}}</option>
+    
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Nom">Nom</label>
+                        <input [(ngModel)]="myDevice.device" name="Nom" type="text" class="form-control" id="Nom"
+                            placeholder="Enter Nom" required>
+                    </div>
+                   
+    
+    
+                    <div class="form-group">
+                        <label for="status">status</label>
+                        <select [(ngModel)]="myDevice.status" name="status" class="form-select"
+                            aria-label="Default select example">
+    
+                            <option selected value="false">off</option>
+                            <option value="true">on</option>
+    
+                        </select>
+    
+                    </div>
+    
+                    <button [hidden]="this.modalMode!='add'"  (click)="add()" class="btn btn-primary"
+                        (click)="modal.dismiss('Cross click')"><i class="fas fa-plus"></i>
+                        Add Device </button>
+     
+                    <button  [hidden]="this.modalMode!='update'" (click)="update()" class="btn btn-primary"
+                        (click)="modal.dismiss('Cross click')"><i class="fas fa-edit"></i>
+                        Update Device </button>
+    
+                </form>
+    
+    
+    
+                {{myDevice | json}}
+    
+    
+    
+            </div>
+        </div>
+    
+    
+    </ng-template>
+    <!-- END of Model ADD & Update device :------------------------------------------------------------ -->
+    
+    
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <ul class="list-group">
+    
+    
+    
+                <ul class="list-group">     
+    
+                    <li *ngFor="let d of listofDevices"
+                        class="list-group-item d-flex justify-content-between align-items-center {{d.status?'on-class':'off-class'}}">
+                        <button (click)="toggleStatus(d.id)" type="button"  class="btn btn-lg"><i class="fa fa-solid {{d.status?'fa-play':'fa-power-off'}}"></i></button>
+                        id:{{d.id}}<br>
+                        device:{{d.device}}<br>
+                        room:{{d.room?.name}}<br>
+                        floor:{{d.room?.floorId}}<br>
+                        status:{{d.status?'ON':'OFF'}}<br>
+    
+                        
+    
+                        <button (click)="openUpdate(modalContent,d.id)" type="button" class="btn btn-warning btn-md"><i class="fa fa-pencil"></i></button>
+    
+                        <button (click)="delete(d.id)" type="button"  class="btn btn-danger btn-md"><i class="fa fa-trash"></i></button>
+    
+                    </li>
+    
+                </ul>
+    
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+
+  
+        
+
+
+
+
