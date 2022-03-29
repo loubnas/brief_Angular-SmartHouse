@@ -7,6 +7,7 @@ import { Floor } from '../models/floor';
 })
 export class FloorService {
 
+
   constructor(private http: HttpClient) { }
 
   urlAPI='http://localhost:3000/floors';
@@ -30,6 +31,20 @@ deleteFloor(id:any){
   return this.http.delete(`${this.urlAPI}/${id}`);
 }
 
+
+// ADD floor: 
+
+addFloor(Floor:any){
+  return this.http.post<Floor>(this.urlAPI,Floor);
+}
+
+
+//Update :
+
+updateFloor(Floor:any){
+
+  return this.http.put<Floor>(`${this.urlAPI}/${Floor.id}`,Floor);
+}
 
 
 

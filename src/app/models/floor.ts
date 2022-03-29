@@ -7,4 +7,6 @@ export interface Floor{
     homeId?:number,
     home?:Home,
     rooms?:Room[]
+
+
 }

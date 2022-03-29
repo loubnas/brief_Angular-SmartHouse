@@ -32,4 +32,19 @@ deleteRoom(id:any){
 return this.http.delete(`${this.urlAPI}/${id}`);
 }
 
+
+// ADD room: 
+
+addRoom(Room:any){
+  return this.http.post<Room>(this.urlAPI,Room);
+}
+
+
+//Update :
+
+updateRoom(Room:any){
+
+  return this.http.put<Room>(`${this.urlAPI}/${Room.id}`,Room);
+}
+
 }

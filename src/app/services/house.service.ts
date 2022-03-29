@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { GlobalVars } from '../common/global-vars';
 import { Home } from '../models/home';
 
 @Injectable({
@@ -33,6 +34,7 @@ deleteHouse(id:any){
 // ADD device: 
 
 addHome(Home:any){
+  Home.userId=GlobalVars.connectedUser?.id;
   return this.http.post<Home>(this.urlAPI,Home);
 }
 

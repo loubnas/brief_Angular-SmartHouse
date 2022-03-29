@@ -4,7 +4,7 @@ import { Floor } from "./floor";
 export interface Room{
     id?:number,
     name:string,
-    floorId:number,
+    floorId?:number,
     floor?:Floor,
     devices?:Device[]
 }

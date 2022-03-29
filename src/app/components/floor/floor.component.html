@@ -5,10 +5,64 @@
         <div class="col-md-6 text-center">
             <h3>List of floors </h3>
         </div>
-        <button   class="btn btn-primary btn-sm mr-1"><i class="fa fa-plus"></i></button> 
+        <button (click)="openAdd(modalContent)"  class="btn btn-primary btn-sm mr-1"><i class="fa fa-plus"></i></button> 
     
     </div>
+    <!-- Model ADD & Update device : -------------------------------------------------------------------------->
+    <ng-template #modalContent let-modal>
     
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="modal-basic-title">Add floor </h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-md-6 mx-auto">
+    
+                <form method="post">
+                    
+                    <div class="form-group">
+                        <label for="status">home</label>
+                        <select [required]=true [(ngModel)]="this.myHome" (ngModelChange)="homeChange($event)" name="home" class="form-select">
+    
+                            <option *ngFor="let h of listofHouses" [ngValue]="h" value="{{h.id}}" >Home : {{h.name}}</option>
+    
+                        </select>
+                    </div>
+
+            
+
+                    <div class="form-group">
+                        <label for="Nom">Numero floor :</label>
+                        <input [(ngModel)]="myFloor.number" name="number" type="number" class="form-control" id="number"
+                            placeholder="Enter Numero floor" required>
+                    </div>
+                   
+             
+    
+                    <button [hidden]="this.modalMode!='add'"  (click)="add()" class="btn btn-primary"
+                        (click)="modal.dismiss('Cross click')"><i class="fas fa-plus"></i>
+                        Add floor </button>
+     
+                    <button  [hidden]="this.modalMode!='update'" (click)="update()" class="btn btn-primary"
+                        (click)="modal.dismiss('Cross click')"><i class="fas fa-edit"></i>
+                        Update floor</button>
+    
+                </form>
+    
+    
+    
+                {{myFloor | json}}
+    
+    
+    
+            </div>
+        </div>
+    
+    
+    </ng-template>
+    <!-- END of Model ADD & Update device :------------------------------------------------------------ -->
       
    
 
@@ -31,9 +85,9 @@
                         </span><br>
                     </p>    
                      
-                        <button  type="button" class="btn btn-warning btn-md"><i class="fa fa-pencil"></i></button>
+                        <button (click)="openUpdate(modalContent,f.id)" type="button" class="btn btn-warning btn-md"><i class="fa fa-pencil"></i></button>
     
-                        <button   type="button"  class="btn btn-danger btn-md"><i class="fa fa-trash"></i></button>
+                        <button (click)="delete(f.id)"  type="button"  class="btn btn-danger btn-md"><i class="fa fa-trash"></i></button>
     
                     </li>
     

@@ -11,8 +11,7 @@ import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HouseComponent } from './components/house/house.component';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -33,7 +32,8 @@ import { HouseComponent } from './components/house/house.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
 
   ],
   exports:[
