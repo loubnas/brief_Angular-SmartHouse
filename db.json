@@ -37,20 +37,6 @@
       "userId": 1
     },
     {
-      "name": "homeme",
-      "adress": "qua ananas",
-      "userId": 0,
-      "id": 3,
-      "floors": []
-    },
-    {
-      "name": "HOUSE12",
-      "adress": "adresss1211212",
-      "userId": 0,
-      "id": 4,
-      "floors": []
-    },
-    {
       "name": "TEST",
       "adress": "QU BOURDEAa",
       "id": 5
@@ -65,34 +51,9 @@
       "name": "TVV",
       "adress": "QU BOURDEAa",
       "id": 7
-    },
-    {
-      "name": "TEST",
-      "adress": "QU BOURDEAa",
-      "userId": 0,
-      "id": 8
     }
   ],
   "floors": [
-    {
-      "id": 1,
-      "number": 10,
-      "homeId": 4,
-      "rooms": [
-        {
-          "id": 1,
-          "name": "bedroom",
-          "floorId": 1
-        }
-      ],
-      "home": {
-        "name": "homeme",
-        "adress": "qua ananas",
-        "userId": 0,
-        "id": 3,
-        "floors": []
-      }
-    },
     {
       "id": 2,
       "number": 2,
@@ -104,9 +65,19 @@
       "id": 3
     },
     {
-      "homeId": 4,
-      "number": 2,
-      "id": 4
+      "homeId": 1,
+      "number": 1,
+      "id": 5
+    },
+    {
+      "homeId": 1,
+      "number": 12,
+      "id": 6
+    },
+    {
+      "homeId": 1,
+      "number": 6,
+      "id": 7
     }
   ],
   "rooms": [
@@ -170,6 +141,11 @@
         "number": 2,
         "id": 4
       }
+    },
+    {
+      "name": "JJJJ",
+      "floorId": 3,
+      "id": 4
     }
   ],
   "devices": [
@@ -177,7 +153,7 @@
       "id": 2,
       "device": "phone",
       "roomId": 2,
-      "status": true,
+      "status": false,
       "room": {
         "id": 2,
         "name": "kitchen",
@@ -186,7 +162,7 @@
     },
     {
       "device": "HANI",
-      "status": false,
+      "status": true,
       "roomId": 1,
       "room": {
         "id": 1,
@@ -263,6 +239,13 @@
       "roomId": 3,
       "room": null,
       "id": 6
+    },
+    {
+      "device": "UUUU",
+      "status": "true",
+      "roomId": 2,
+      "room": null,
+      "id": 7
     }
   ]
 }
